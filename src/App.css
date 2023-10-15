@@ -1,0 +1,83 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+.app {
+  display: flex;
+  font-family: "Roboto", sans-serif;
+}
+
+.sidebar-nav {
+  background-color: #040440;
+  width: 220px;
+  color: #9397b4;
+  padding: 14px;
+  height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  text-decoration: none;
+  color: #9397b4;
+}
+
+.sidebar-nav a.selected {
+  color: white;
+  background-color: #2d2d69;
+}
+
+.sidebar-nav a {
+  box-sizing: border-box;
+  color: 9397b4;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  height: 40px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.sidebar-nav a > div {
+  flex: 1;
+}
+
+.sidebar-nav .header {
+  font-size: 16px;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.sidebar-nav > ul {
+  list-style-type: none;
+  margin-top: 30px;
+  padding: 0;
+  flex: 1;
+}
+
+.sidebaricon {
+  width: 20px;
+  height: auto;
+}
+
+.sidebaricon.large {
+  width: 22px;
+}
+
+.sidebaricon.large path {
+  fill: white;
+}
+
+.sidebaricon.sidearrow {
+  width: 12px;
+}
+
+.sidebaricon.downarrow {
+  width: 12px;
+}
+
+.sidebar-profile {
+  cursor: pointer;
+}
