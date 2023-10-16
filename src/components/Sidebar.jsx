@@ -16,8 +16,10 @@ import help from "../assets/help.svg";
 import helpSelected from "../assets/helpselected.svg";
 import downArrow from "../assets/downarrow.svg";
 import downArrowSelected from "../assets/downarrowselected.svg";
+import longIsland from "../assets/longisland.jpg";
+import cross from "../assets/cross.svg";
 
-const Sidebar = () => {
+const Sidebar = ({ showSidebar, setShowSidebar }) => {
   const [selected, setSelected] = useState("Dashboard");
 
   const navItemsData = [
@@ -30,13 +32,6 @@ const Sidebar = () => {
     },
     {
       name: "Product",
-      icon: squareKeyIcon,
-      selectedIcon: squareKeyIconSelected,
-      showSideArrow: true,
-      selected: selected,
-    },
-    {
-      name: "Cube",
       icon: cube,
       selectedIcon: cubeSelected,
       showSideArrow: true,
@@ -73,27 +68,44 @@ const Sidebar = () => {
   ];
 
   return (
-    <nav className="sidebar-nav">
-      <div className="header">
-        <img className="sidebaricon large" src={hexagonIcon} alt="icon"></img>
-        Dashboard
-      </div>
-      <ul>
-        {navItemsData.map((item, index) => (
-          <li>
-            <NavItem
-              key={item.name}
-              name={item.name}
-              icon={item.icon}
-              selectedIcon={item.selectedIcon}
-              showSideArrow={item.showSideArrow}
-              selected={item.selected}
-            />
-          </li>
-        ))}
-      </ul>
-      <Profile />
-    </nav>
+    <>
+      {showSidebar && (
+        <div
+          onClick={() => setShowSidebar(false)}
+          className="sidebar-overlay"
+        ></div>
+      )}
+      <nav className={`sidebar-nav ${showSidebar ? "show" : "hide"}`}>
+        <button
+          onClick={() => setShowSidebar(false)}
+          className={`sidebar-toggle-off ${showSidebar ? "show" : "hide"}`}
+        >
+          <img src={cross} alt="cross"></img>
+        </button>
+        <div className="header">
+          <img className="sidebaricon large" src={hexagonIcon} alt="icon"></img>
+          Dashboard
+        </div>
+        <ul>
+          {navItemsData.map((item, index) => (
+            <li key={item.name}>
+              <NavItem
+                name={item.name}
+                icon={item.icon}
+                selectedIcon={item.selectedIcon}
+                showSideArrow={item.showSideArrow}
+                selected={item.selected}
+              />
+            </li>
+          ))}
+        </ul>
+        <Profile
+          name="Long Island"
+          position="Project Manager"
+          avatar={longIsland}
+        />
+      </nav>
+    </>
   );
 };
 
