@@ -1,5 +1,8 @@
 import searchIcon from "../assets/searchicon.svg";
 import dollarIcon from "../assets/dollar.svg";
+import bookIcon from "../assets/book.svg";
+import walletIcon from "../assets/wallet.svg";
+import shoppingBagIcon from "../assets/shoppingbag.svg";
 import listBurger from "../assets/listburgericon.svg";
 import abstract3D from "../assets/3DAbstract.jpg";
 import headphoneImage from "../assets/headphone.jpeg";
@@ -50,24 +53,28 @@ const CardContainer = () => {
           name="Earning"
           value="$198k"
           change="+37.8%"
+          color="#dcfff0"
         />
         <SummaryCard
-          icon={dollarIcon}
-          name="Earning"
-          value="$198k"
-          change="+37.8%"
+          icon={bookIcon}
+          name="Orders"
+          value="$2.4k"
+          change="-2%"
+          color="#ecd1ff"
         />
         <SummaryCard
-          icon={dollarIcon}
-          name="Earning"
-          value="$198k"
-          change="+37.8%"
+          icon={walletIcon}
+          name="Balance"
+          value="$2.4k"
+          change="-2%"
+          color="#cbf1ff"
         />
         <SummaryCard
-          icon={dollarIcon}
-          name="Earning"
-          value="$198k"
-          change="+37.8%"
+          icon={shoppingBagIcon}
+          name="Total Sales"
+          value="$89k"
+          change="+11%"
+          color="#ffb8e8"
         />
       </div>
       <div>
@@ -81,10 +88,10 @@ const CardContainer = () => {
   );
 };
 
-const SummaryCard = ({ icon, name, value, change }) => {
+const SummaryCard = ({ icon, name, value, change, color }) => {
   return (
     <div className="overview-card">
-      <div className="overview-card-image-container">
+      <div style={{backgroundColor: color}} className="overview-card-image-container">
         <img src={icon}></img>
       </div>
       <div className="overview-card-content">
@@ -299,7 +306,7 @@ const ProductSellTable = () => {
       title: "Abstact 3D",
       description: "lorem ipsum",
       stock: "32 in stock",
-      price: "$ 40",
+      price: "$40",
       totalSales: "30",
     },
     {
@@ -307,7 +314,7 @@ const ProductSellTable = () => {
       title: "Headphone",
       description: "a very dope headphone",
       stock: "32 in stock",
-      price: "$ 40",
+      price: "$40",
       totalSales: "30",
     },
   ];
@@ -440,6 +447,22 @@ const DetailsModal = ({ isOpen, onClose, product }) => {
             <p>{product.description}</p>
           </div>
         </div>
+        <table className="modal-table">
+          <thead>
+            <tr>
+              <th>Stock</th>
+              <th>Price</th>
+              <th>Total Sales</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{product.stock}</td>
+              <td>{product.price}</td>
+              <td>{product.totalSales}</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   );
